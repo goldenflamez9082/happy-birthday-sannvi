@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday Sannvi Singh! 💖</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to bottom, #ffb6c1, #ffe4e1, #fffacd);
+            color: #ff1493;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 20px;
+            text-shadow: 2px 2px #ffd700;
+        }
+        .character-img-container {
+            max-width: 250px;
+            margin: 0 auto 20px auto;
+        }
+        .character-img-container img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #ff69b4;
+        }
+        .balloons {
+            font-size: 4em;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .cake {
+            font-size: 5em;
+            margin: 20px 0;
+            animation: sparkle 2s infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { text-shadow: 0 0 5px #ffd700; }
+            50% { text-shadow: 0 0 20px #ff69b4; }
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff69b4;
+            max-width: 600px;
+        }
+        .wishes {
+            font-size: 1.2em;
+            margin-top: 30px;
+        }
+        .video {
+            margin: 30px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px #ff69b4;
+        }
+        .game {
+            margin: 30px auto;
+            border: 2px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 420px;
+        }
+        #birthdayMessage {
+            display: none;
+            font-size: 2em;
+            color: #ff1493;
+            margin-top: 20px;
+            animation: confetti 3s infinite;
+        }
+        @keyframes confetti {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+        canvas {
+            background: linear-gradient(to bottom, #e6e6fa, #ffb6c1);
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+        }
+        .playlist {
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        .playlist h2 {
+            color: #ff1493;
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .confetti div {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti">
+        <div style="left:10%; animation-delay:0s;"></div>
+        <div style="left:20%; animation-delay:1s;"></div>
+        <div style="left:30%; animation-delay:2s;"></div>
+        <div style="left:40%; animation-delay:3s;"></div>
+        <div style="left:50%; animation-delay:4s;"></div>
+        <div style="left:60%; animation-delay:0.5s;"></div>
+        <div style="left:70%; animation-delay:1.5s;"></div>
+        <div style="left:80%; animation-delay:2.5s;"></div>
+        <div style="left:90%; animation-delay:3.5s;"></div>
+    </div>
+
+    <!-- Character Image -->
+    <div class="character-img-container">
+        <img src="chopper.png" alt="Cute Cartoon Character" />
+    </div>
+
+    <h1>Happy Birthday, Sannvi Singh! 💖✨</h1>
+    <div class="balloons">🎈💕🎈</div>
+    <div class="cake">🎂🦄</div>
+    <div class="message">
+        Wishing you a day filled with joy, laughter, and all your favorite things! May this year bring you endless adventures, sweet surprises, and lots of sparkle! 🌟💖
+    </div>
+
+    <div class="video">
+        <!-- Locally Embedded Video -->
+        <video id="birthdayVideo" controls autoplay muted style="width: 100%; height: auto; border-radius: 10px;">
+            <source src="birthday-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="birthdayMessage">
+        🎉 Happy Birthday, Sannvi! Hope you enjoyed the video! You're the best! 🎂💕
+    </div>
+
+    <div class="game">
+        <h2>Catch the Unicorn Game! 🦄✨</h2>
+        <canvas id="unicornCanvas" width="400" height="300"></canvas>
+        <p>Score: <span id="score">0</span> 🌟</p>
+    </div>
+
+    <div class="playlist">
+        <h2>Girl Power Playlist! 🎶💃</h2>
+        <audio controls style="width: 100%;">
+            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav" />
+            Your browser does not support the audio element.
+        </audio>
+        <p>Add your favorite songs here! (Upload MP3s and update the src)</p>
+    </div>
+
+    <div class="wishes">
+        From: [Your Name or Anonymous]<br />
+        Add your personal message here! 💌
+    </div>
+
+    <script>
+        // Show birthday message when video ends
+        const video = document.getElementById('birthdayVideo');
+        const message = document.getElementById('birthdayMessage');
+
+        video.addEventListener('ended', () => {
+            message.style.display = 'block';
+        });
+
+        // Catch the Unicorn Game
+        const canvas = document.getElementById('unicornCanvas');
+        const ctx = canvas.getContext('2d');
+        let score = 0;
+        let unicorn = {
+            x: Math.random() * (canvas.width - 30),
+            y: Math.random() * (canvas.height - 30),
+            dx: 2,
+            dy: 2,
+        };
+
+        function drawUnicorn() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = '30px Arial';
+            ctx.fillText('🦄', unicorn.x, unicorn.y);
+            // Sparkle emojis nearby
+            ctx.fillText('✨', unicorn.x + 20, unicorn.y - 10);
+            ctx.fillText('💖', unicorn.x - 10, unicorn.y + 10);
+
+            unicorn.x += unicorn.dx;
+            unicorn.y += unicorn.dy;
+
+            if (unicorn.x <= 0 || unicorn.x >= canvas.width - 30) unicorn.dx = -unicorn.dx;
+            if (unicorn.y <= 30 || unicorn.y >= canvas.height - 30) unicorn.dy = -unicorn.dy;
+        }
+
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+            if (
+                clickX >= unicorn.x &&
+                clickX <= unicorn.x + 30 &&
+                clickY >= unicorn.y - 30 &&
+                clickY <= unicorn.y + 10
+            ) {
+                score++;
+                document.getElementById('score').textContent = score;
+                // Move unicorn to a new random location
+                unicorn.x = Math.random() * (canvas.width - 30);
+                unicorn.y = Math.random() * (canvas.height - 30);
+            }
+        });
+
+        setInterval(drawUnicorn, 50);
+    </script>
+</body>
+</html>
