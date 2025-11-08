@@ -137,24 +137,30 @@
         <div style="left:90%; animation-delay:3.5s;"></div>
     </div>
 
-    <!-- Character Image -->
-    <div class="character-img-container">
-        <img src="chopper.png" alt="Cute Cartoon Character" />
+  <div id="countdown" style="font-size:2em;">Starting in 3...2...1...</div>
+<script>
+  setTimeout(() => {
+    document.getElementById('countdown').style.display = 'none';
+    video.play();
+  }, 3000);
+</script>
+
+
+
+
+    <div class="video">
+        <!-- Locally Embedded Video -->
+        <video id="birthdayVideo" controls preload="auto" muted style="width: 100%; height: auto; border-radius: 10px;">
+            <source src="bday.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
     </div>
 
-    <h1>Happy Birthday, Sannvi Singh! 💖✨</h1>
+<h1>Happy Birthday, Sannvi Singh! 💖✨</h1>
     <div class="balloons">🎈💕🎈</div>
     <div class="cake">🎂🦄</div>
     <div class="message">
         Wishing you a day filled with joy, laughter, and all your favorite things! May this year bring you endless adventures, sweet surprises, and lots of sparkle! 🌟💖
-    </div>
-
-    <div class="video">
-        <!-- Locally Embedded Video -->
-        <video id="birthdayVideo" controls autoplay muted style="width: 100%; height: auto; border-radius: 10px;">
-            <source src="bday.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
     </div>
 
     <div id="birthdayMessage">
@@ -168,19 +174,29 @@
     </div>
 
     <div class="playlist">
-        <h2>Girl Power Playlist! 🎶💃</h2>
-        <audio controls style="width: 100%;">
-            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav" />
-            Your browser does not support the audio element.
-        </audio>
-        <p>Add your favorite songs here! (Upload MP3s and update the src)</p>
-    </div>
+    
+    <audio id="bgMusic" loop>
+        <source src="summer.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+    </audio>
+    <p>Click anywhere to start the music! 🎧</p>
+</div>
+<script>
+    // Background music autoplay workaround
+    const bgMusic = document.getElementById('bgMusic');
+    document.body.addEventListener('click', () => {
+        bgMusic.play().catch((e) => {
+            console.log("Autoplay blocked:", e);
+        });
+    }, { once: true });
+</script>
 
     <div class="wishes">
-        From: [Your Name or Anonymous]<br />
-        Add your personal message here! 💌
+        From: [ Akshhat ]<br />    </div>
+  <!-- Character Image -->
+    <div class="character-img-container">
+        <img src="Chopper.jpg" alt="Cute Cartoon Character" />
     </div>
-
     <script>
         // Show birthday message when video ends
         const video = document.getElementById('birthdayVideo');
